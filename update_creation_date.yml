@@ -1,0 +1,22 @@
+name: Update Creation Date
+# requires: PythonDepManager
+description: Adds or updates the date based on filename creation time in nanoseconds ([[t-\d+]])
+version: 1.0.0
+exec:
+  - python
+  - "{pluginDir}/update_creation_date.py"
+interface: raw
+tasks:
+  - name: Add dates to undated scenes
+    description: Adds dates to undated scenes based on filename creation time in nanoseconds ([[-t\d+]]). Note, this task will only do a maximum of 2500 scenes at a time.
+    defaultArgs:
+      mode: undated
+  - name: Add dates to all scenes
+    description: (depricated) Adds dates to all scenes, overwriting existing dates, based filename creation time in nanoseconds ([[t-\d+]])
+    defaultArgs:
+      mode: all
+hooks:
+  - name: update_date_of_file
+    description: adds date based on filename nanoseconds ([[t-\d+]])
+    triggeredBy:
+      - Scene.Create.Post
