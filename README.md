@@ -27,3 +27,8 @@ have time information in the form of [[t-xxxxxxx]] it will be ignored. There are
 add dates to undated files, and one to update the dates on all items (overwriting existing ones). There is
 also a hook task. Also, when a new scene is added to stashapp for the first time, the program will run on just that
 one scene, check if it has time information, and add it automatically.
+
+
+# TODO
+
+- add an index.yml so you can just add the url in stash rather than having to manually add the plugin
