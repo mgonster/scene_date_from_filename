@@ -18,8 +18,12 @@ You must use the `add_time_to_filename.py` program to add timestamp information 
 for the plugin to read. Usage is `python3 /path/to/program/add_time_to_filename.py /path/to/folder/to/rename.
 The program will only search the given directory. It does not search recursively. Currently it uses the mtime.
 
+Copy and paste `update_creation_date.py` and `update_creation_date.yml` into your plugins directory (next to your config.yml file,
+which itself is probably in a directory nammed config). The files must be together, but they can be in whatever directory
+you want them in, like `/plugins/random/path/update_creation_date.yml`. Reload your plugins in stash (settings -> plugins).
+
 Once the files are dated you can use the plugin to automatically modify the dates. Note, if a file does not
 have time information in the form of [[t-xxxxxxx]] it will be ignored. There are two tasks, one to
 add dates to undated files, and one to update the dates on all items (overwriting existing ones). There is
-also a hook task. When a new scene is added to stashapp for the first time, the program will run on just that
+also a hook task. Also, when a new scene is added to stashapp for the first time, the program will run on just that
 one scene, check if it has time information, and add it automatically.

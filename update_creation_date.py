@@ -1,7 +1,5 @@
 # Author: Mgonster
 
-from PythonDepManager import ensure_import
-ensure_import("stashapi:stashapp-tools>=0.2.58")
 import stashapi.log as log
 from stashapi.stashapp import StashInterface
 import re
@@ -79,11 +77,11 @@ def updateUndatedScenes():
   current_scene_count = 0
   while scenes and iteration_limit > 0:
     updateScenes(scenes, total_scenes, current_scene_count)
-    scene_count += len(scenes)
+    current_scene_count += len(scenes)
     # get new undated scenes
     scenes = stash.call_GQL(get_undated_scenes_graphql)["findScenes"]["scenes"]
     total_iterations -= 1
-  log.info(f"Finished updating {scene_count} scenes")
+  log.info(f"Finished updating {current_scene_count} scenes")
       
 def updateAllScenes():
   get_all_scenes_graphql = """
